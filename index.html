@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
+  <title>LUCFLIX</title>
+
+   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #31075e;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: black;
+      text-align: center;
+      padding: 15px 0 5px;
+    }
+
+    .logo {
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: red;
+    }
+
+    /* Estilos padrão para .media */
+    .media {
+      width: calc(20% - 20px);
+      margin: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+      /* Estilos para telas menores ou iguais a 1024px com quatro colunas */
+      .media {
+        width: calc(25% - 20px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Estilos para telas menores ou iguais a 768px com três colunas */
+      .media {
+        width: calc(33.33% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Estilos para telas menores ou iguais a 480px com duas colunas */
+      .media {
+        width: calc(50% - 20px);
+      }
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .media img {
+      width: 100%;
+      height: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .frame-container {
+      background: #4b0082;  
+      color: white;
+      font-family: Hanuman, Ruda, sans-serif;
+      font-size: 15px;
+      padding: 10px;
+      position: relative; /* Adicionado para posicionar os botões */
+    }
+
+    .container {
+      position: fixed;
+      top: 10px;
+      right: 5%;
+      z-index: 9996;
+    }
+.reset-button {
+  width: 40px;
+  height: 40px;
+  background-color: #001F3F; /* Add a semicolon here */
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  top: 5%;
+  right: 1.5%;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: white;
+}
+    } 
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">LucFlix</div>
+  <h2>Filmes e Séries</h2>
+  </header>
+
+<body>    
+<!-- Adicione os botões de categoria -->
+<div class="category-buttons">
+  <button class="category-button" onclick="selectCategory('movies')">Filmes</button>
+  <button class="category-button" onclick="selectCategory('series')">Séries</button>
+  <button class="category-button" onclick="selectCategory('animations')">Animes</button>
+</div>
+
+    </div>
+        <style>    /* Adicione estilos para os botões de categoria */
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 14px; /* Espaçamento do topo */
+    }
+
+    .category-button {
+      width: 95px;
+      height: 40px;
+      background-color: black;  
+      border: none;
+      border-radius: 20px;
+      margin-right: 5px; /* Espaçamento entre os botões */
+      cursor: pointer;
+      font-size: 15px;
+      color: white;
+    } 
+#seriesSection,
+#animationsSection {
+  display: none;
+}
+</style>
+</body>
+ 
+<section id="moviesSection">
+  <!-- ... (conteúdo relacionado a filmes existente) ... -->
+  
+</section>
+
+<section id="seriesSection">
+  <!-- ... (conteúdo relacionado a séries) ... --> 
+  <div class="media" onclick="showFrame('https://wmondplay.online/embed-2/?type=tvshows&imdb=tt2098220')">
+    <img src="https://image.tmdb.org/t/p/w300/oaLXsduGoDOOftWziIOvyZzrR4T.jpg" alt="Arqueiro">
+</div>
+
+ <div class="media" onclick="showFrame('https://wmondplay.online/embed-2/?type=tvshows&imdb=tt13159924')">
+    <img src="https://m.media-amazon.com/images/M/MV5BMGYxOWMxNjMtNjE3Mi00YTRjLTlkZWUtNDk4NzBkMWEyYWE0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_QL75_UY562_CR8,0,380,562_.jpg" alt="Gen V">
+</div>
+
+</section> 
+
+<section id="animationsSection">
+  <!-- ... (conteúdo relacionado a animações) ... -->
+</section>
+ 
+    <!-- Adicione um ícone de recarregar ao botão -->
+<button class="reset-button" onclick="resetPage()"><i class="fas fa-home"></i></button>
+  </div>
+
+  <div id="frameContainer" class="hidden frame-container">
+    <iframe id="EmbedderContainer" width="100%" height="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    function resetPage() {
+      // Redirecionar para o site de filmes
+      window.location.href = 'https://mrrobot071.github.io/filmes/';
+    }
+
+  function showFrame(src) {
+  const frameContainer = document.getElementById("frameContainer");
+  const embedderContainer = document.getElementById("EmbedderContainer");
+
+  // Adicione estilos ao iframe
+  embedderContainer.style.width = "740px";
+  embedderContainer.style.height = "360px";
+  embedderContainer.style.background = "#4b0082";
+  embedderContainer.style.color = "white";
+  embedderContainer.style.fontFamily = "Hanuman, Ruda, sans-serif";
+  embedderContainer.style.fontSize = "15px";
+
+  // Centralize o frameContainer na tela
+  frameContainer.style.display = "flex";
+  frameContainer.style.alignItems = "center";
+  frameContainer.style.justifyContent = "center";
+  frameContainer.style.position = "fixed";
+  frameContainer.style.top = "0";
+  frameContainer.style.left = "0";
+  frameContainer.style.width = "100%";
+  frameContainer.style.height = "100%";
+  frameContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+
+  // Remover a classe 'hidden'
+  frameContainer.classList.remove("hidden");
+  embedderContainer.src = src;
+}
+
+function selectCategory(categoria) {
+  // Ocultar todas as seções
+  document.getElementById("moviesSection").style.display = "none";
+  document.getElementById("seriesSection").style.display = "none";
+  document.getElementById("animationsSection").style.display = "none";
+
+  // Mostrar a seção selecionada
+  document.getElementById(`${categoria}Section`).style.display = "flex";
+}
+</script>
+<body>  
+  <a href="https://api.whatsapp.com/send?l=pt&amp;phone=557192920032&amp;text=Olá! Gostaria de fazer um pedido de filme, série ou anime.">
+    <img src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom: 15px; right: 25px; z-index:0;" data-selector="img">
+  </a>
+</body> 
+<style>
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px; /* Ajuste conforme necessário */
+  }
+</style>
+<footer>
+  <p>Desenvolvido por Lucas Nathan &copy; 2023</p>
+</footer>
+</body>
+</html>
