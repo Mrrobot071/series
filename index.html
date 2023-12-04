@@ -107,20 +107,18 @@
   font-size: 15px;
   color: white;
 }
-     
-#seriesSection,
-#animationsSection {
-  display: none;
     } 
 
   </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">LucFlix</div>
-        <h2>Filmes e Séries</h2>
-    </header>   
+<header>
+  <div class="logo">LucFlix</div>
+  <h2>Filmes e Séries</h2>
+  </header>
+
+<body>    
  
 </div> 
 
@@ -148,6 +146,7 @@
   display: none;
 }
 </style>
+</body>
   
 <!-- Adicione os botões de categoria -->
 <div class="category-buttons">
@@ -155,6 +154,7 @@
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/series'" >Séries</button>
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/animes'">Animes</button>
 </div>
+
 <section 
   !-- ... (conteúdo relacionado a séries) ... --> 
 
@@ -193,7 +193,7 @@
     <iframe id="EmbedderContainer" width="100%" height="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
   </div>
 
-<script>
+<<script>
     function showFrame(url) {
         window.location.href = url;
     }
@@ -204,33 +204,10 @@
       window.location.href = 'https://mrrobot071.github.io/filmes/';
     }
 
-  function showFrame(src) {
-  const frameContainer = document.getElementById("frameContainer");
-  const embedderContainer = document.getElementById("EmbedderContainer");
-
-  // Adicione estilos ao iframe
-  embedderContainer.style.width = "740px";
-  embedderContainer.style.height = "360px";
-  embedderContainer.style.background = "#4b0082";
-  embedderContainer.style.color = "white";
-  embedderContainer.style.fontFamily = "Hanuman, Ruda, sans-serif";
-  embedderContainer.style.fontSize = "15px";
-
-  // Centralize o frameContainer na tela
-  frameContainer.style.display = "flex";
-  frameContainer.style.alignItems = "center";
-  frameContainer.style.justifyContent = "center";
-  frameContainer.style.position = "fixed";
-  frameContainer.style.top = "0";
-  frameContainer.style.left = "0";
-  frameContainer.style.width = "100%";
-  frameContainer.style.height = "100%";
-  frameContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-
   // Remover a classe 'hidden'
   frameContainer.classList.remove("hidden");
   embedderContainer.src = src;
-}
+
 
 function selectCategory(categoria) {
   // Ocultar todas as seções
@@ -245,7 +222,7 @@ function selectCategory(categoria) {
 <body>  
   <a href="https://api.whatsapp.com/send?l=pt&amp;phone=557192920032&amp;text=Olá! Gostaria de fazer um pedido de filme, série ou anime.">
     <img src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom: 15px; right: 25px; z-index:0;" data-selector="img">
-  </a> 
+  </a>
 </body> 
 <style>
   footer {
@@ -257,6 +234,6 @@ function selectCategory(categoria) {
 </style>
 <footer>
   <p>Desenvolvido por Lucas Nathan &copy; 2023</p>
-</footer> 
-</body> 
+</footer>
+</body>
 </html>
