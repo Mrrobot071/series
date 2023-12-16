@@ -1,150 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/png"
-    href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
-    <title>LUCFLIX</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/fRt4sw0qezOyfuU/Ideias-20230427_110514_5f6025afd15b42deabd305a3f9352375.jpg">
+  <title>LUCFLIX</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #1D1A39;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1D1A39;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
 
-        header {
-            background-color: black;
-            text-align: center;
-            padding: 15px 0 5px;
-        }
+    header {
+      background-color: black;
+      text-align: center;
+      padding: 15px 0 5px;
+    }
 
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: red;
-        }
+    .logo {
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: red;
+    }
 
-        .media {
-            width: calc(20% - 20px);
-            margin: 10px;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
+    /* Estilos padrão para .media */
+    .media {
+      width: calc(20% - 20px);
+      margin: 10px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
 
-@media (max-width: 1024px) {
-            .media {
-                width: calc(25% - 20px);
-            }
-        }
+    @media (max-width: 1024px) {
+      /* Estilos para telas menores ou iguais a 1024px com quatro colunas */
+      .media {
+        width: calc(25% - 20px);
+      }
+    }
 
-@media (max-width: 768px) {
-            .media {
-                width: calc(33.33% - 20px);
-            }
-        }
+    @media (max-width: 768px) {
+      /* Estilos para telas menores ou iguais a 768px com três colunas */
+      .media {
+        width: calc(33.33% - 20px);
+      }
+    }
 
-@media (max-width: 480px) {
-            .media {
-                width: calc(50% - 20px);
-            }
-        }
+    @media (max-width: 480px) {
+      /* Estilos para telas menores ou iguais a 480px com duas colunas */
+      .media {
+        width: calc(50% - 20px);
+      }
+    }
 
-        section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 10px;
-        }
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px;
+      
+    }
 
-        .media img {
-            width: 100%;
-            height: auto;
-        }
+    .media img {
+      width: 100%;
+      height: auto;
+      border-radius: 7%;
+    }
 
-        .category-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 14px;
-        }
+    .hidden {
+      display: none;
+    }
 
-        .category-button {
-            width: 95px;
-            height: 40px;
-            background-color: black;
-            border: none;
-            border-radius: 20px;
-            margin-right: 5px;
-            cursor: pointer;
-            font-size: 15px;
-            color: white;
-        }
-
-        .reset-button {
-            width: 40px;
-            height: 40px;
-            background-color: #001F3F;
-            border: none;
-            border-radius: 50%;
-            position: fixed;
-            top: 5%;
-            right: 1.5%;
-            z-index: 9999;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-            color: white;
-        }
-
-        .frame-container {
-            background: #4b0082;
-            color: white;
-            font-family: Hanuman, Ruda, sans-serif;
-            font-size: 15px;
-            padding: 10px;
-            position: relative;
-        }
-
-        .container {
-            position: fixed;
-            top: 10px;
-            right: 5%;
-            z-index: 9996;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-    </style>
+.reset-button {
+  width: 40px;
+  height: 40px;
+  background-color: #001F3F; /* Add a semicolon here */
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  top: 5%;
+  right: 1.5%;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: white;
+}
+   
+  </style>
 </head>
-
 <body>
 
     <header>
-        <div class="logo">
-            LucFlix
-        </div>
+        <div class="logo">LucFlix</div>
         <h2>Filmes e Séries</h2>
-    </header>
+    </header>   
+ 
+</div> 
 
-    <div class="category-buttons">
-        <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/filmes'">Filmes
-        </button>
-        <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/series'">Séries
-        </button>
-        <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/animes'">Animes
-        </button>
     </div>
+        <style>    /* Adicione estilos para os botões de categoria */
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 14px; /* Espaçamento do topo */
+    }
+
+    .category-button {
+      width: 95px;
+      height: 40px;
+      background-color: black;  
+      border: none;
+      border-radius: 20px;
+      margin-right: 5px; /* Espaçamento entre os botões */
+      cursor: pointer;
+      font-size: 15px;
+      color: white;
+    } 
+</style>
+  
+<!-- Adicione os botões de categoria -->
+<div class="category-buttons">
+  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/filmes'" >Filmes</button>
+  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/series'" >Séries</button>
+  <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/animes'">Animes</button>
+</div> 
 
     <section>
         <!-- Conteúdo relacionado a séries -->
