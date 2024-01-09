@@ -19,7 +19,7 @@
     header {
       background-color: black;
       text-align: center;
-      padding: 15px 0 5px;
+      padding: 15px 0;
     }
 
     .logo {
@@ -93,38 +93,39 @@
   justify-content: center;
   font-size: 15px;
   color: white;
-}
-
-  </style>
-  <style>
-    /* ... (seu código atual) ... */
-
-    /* Adicione estilos para o campo de pesquisa */
-    #search-container {
-      text-align: center;
-      margin: 15px 0 10px;
+} 
+    .app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    #search-input {
-      width: 35%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-right: 10px;
-      font-size: 16px;
+    .app_content {
+        text-align: center;
     }
 
-    #search-button {
-      width: 40px;
-      height: 40px;
-      background-color: #001F3F;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 15px;
-      color: white;
+    .items_header {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
     }
-  </style>
+
+    .search_container {
+        margin-bottom: 5px;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+    }
+
+    input {
+        padding: 0px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
 </head>
 <body>
 
@@ -133,9 +134,6 @@
         <h2>Filmes e Séries</h2>
     </header>   
 
-</div> 
-
-    </div>
         <style>    /* Adicione estilos para os botões de categoria */
     .category-buttons {
       display: flex;
@@ -155,12 +153,33 @@
       color: white;
     } 
 </style>
+    
+<script src="https://superflixapi.top/js/jquery.min.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/axios/dist/axios.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js" type="text/javascript"></script>
+<script type="text/javascript">$(function() {
+  $('.iframe-link').magnificPopup({
+   type:'iframe'
+  });
+});</script>
+<body>
+<section class="app">
+<section class="app_left mobile">
+</nav>
+</section>
+<section class="app_right mobile">
+<section class="app_content">
+<div class="items_header">
+Séries (+2433)
+<div class="search_container">
+<form action="" name="search_form">
+<input type="text" value="" name="search" placeholder="Buscar Série...">
+</form>
+</div>
 
-
-  <div id="search-container">
-    <input type="text" id="search-input" placeholder="Pesquisar...">
-    <button id="search-button" onclick="search()">🔍</button>
-  </div>
   <button class="reset-button" onclick="resetPage()"><i class="fas fa-home"></i></button>
 
 <div class="category-buttons">
@@ -2615,44 +2634,44 @@
   <div class="category-buttons">
     <!-- ... (seu código atual) ... -->
   </div>
-<script>
-  function search() {
-    var searchTerm = document.getElementById("search-input").value.toLowerCase();
-    var mediaItems = document.querySelectorAll(".media");
+ 
+<script type="text/javascript">
+        var BASE_URL = 'https://superflixapi.top';
+    </script>
+<script type="text/javascript">
+    function updateSortOptionsText() {
+        const sortOptions = document.getElementById('sort-options');
+        const windowWidth = window.innerWidth;
 
-    mediaItems.forEach(function (mediaItem) {
-      var altText = mediaItem.querySelector("img").getAttribute("alt");
+        if (windowWidth <= 768) {
+            // Tela pequena
+            const links = sortOptions.querySelectorAll('a');
+            links[0].textContent = 'Recentes';
+            links[1].textContent = 'Atualizados';
+            links[2].textContent = 'De A a Z';
+        } else {
+            // Tela grande
+            const links = sortOptions.querySelectorAll('a');
+            links[0].textContent = 'Adicionados Recentemente';
+            links[1].textContent = 'Atualizados Recentemente';
+            links[2].textContent = 'Ordem Alfabética';
+        }
+    }
 
-      // Verificar se o texto alternativo contém a pesquisa
-      var matchFound = altText && altText.toLowerCase().includes(searchTerm);
-
-      // Exibir o nome na console se a correspondência for encontrada
-      if (matchFound) {
-        console.log("Nome encontrado:", altText);
-        // Chamar a função showFrame ao clicar no item
-        mediaItem.addEventListener("click", function() {
-          var iframeURL = mediaItem.getAttribute("data-iframe-url");
-          if (iframeURL) {
-            showFrame(iframeURL);
-          } else {
-            console.log("URL do iframe não encontrada.");
-          }
-        });
-      }
-
-      // Aplicar a borda com base na correspondência
-      mediaItem.style.border = matchFound ? "2px solid #FFD700" : "none";
-    });
-  }
-
-  function showFrame(url) {
-    // Implemente a lógica para exibir o frame com a URL fornecida
-    console.log("Abrindo frame com URL:", url);
-    // Substitua esta linha com a lógica real para exibir o iframe
-  }
+    // Atualize o texto inicialmente e sempre que a janela for redimensionada
+    window.addEventListener('resize', updateSortOptionsText);
+    window.addEventListener('load', updateSortOptionsText);
 </script>
+<script src="https://superflixapi.top/js/bundle.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/rteam_native_notify.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/jquery-cropper.min.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/cropper.min.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/user.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/tvshows_listing.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/copy.js?v=1.0.0.2" type="text/javascript"></script>
+<script src="https://superflixapi.top/js/dashboard.js?v=1.0.0.2" type="text/javascript"></script>
 
-  <script>
+   <script>
     function resetPage() {
       // Redirecionar para o site de filmes
       window.location.href = 'https://mrrobot071.github.io/series/';
