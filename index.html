@@ -96,6 +96,35 @@
 }
 
   </style>
+  <style>
+    /* ... (seu código atual) ... */
+
+    /* Adicione estilos para o campo de pesquisa */
+    #search-container {
+      text-align: center;
+      margin: 15px 0 10px;
+    }
+
+    #search-input {
+      width: 35%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    #search-button {
+      width: 40px;
+      height: 40px;
+      background-color: #001F3F;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
@@ -127,13 +156,19 @@
     } 
 </style>
 
+
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Pesquisar...">
+    <button id="search-button" onclick="search()">🔍</button>
+  </div>
+  <button class="reset-button" onclick="resetPage()"><i class="fas fa-home"></i></button>
+
 <div class="category-buttons">
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/filmes'" >Filmes</button>
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/series'" >Séries</button>
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/animes'">Animes</button>
   <button class="category-button" onclick="window.location.href='https://mrrobot071.github.io/futebol'">Futebol</button>
 </div> 
-
     <section>
         <!-- Conteúdo relacionado a séries -->
 <div class="media" onclick="showFrame('https://superflixapi.top/serie/197067')" > <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR_QXg0BYB02nrCvl7I45pfNozsdjQIbOykw&usqp=CAU" alt=""></div>
@@ -2570,13 +2605,52 @@
 <div class="media" onclick="showFrame('https://superflixapi.top/serie/99489')" > <img src="https://wallpapercave.com/mwp/wp4371959.jpg" alt=""></div>
 <div class="media" onclick="showFrame('https://superflixapi.top/serie/227004')" > <img src="https://wallpapercave.com/mwp/wp4371959.jpg" alt=""></div>
 <div class="media" onclick="showFrame('https://superflixapi.top/serie/20467')" > <img src="https://wallpapercave.com/mwp/wp4371959.jpg" alt=""></div>
-    </section>
-<button class="reset-button" onclick="resetPage()"><i class="fas fa-home"></i></button>
+    </section><button class="reset-button" onclick="resetPage()"><i class="fas fa-home"></i></button>
   </div>
 
   <div id="frameContainer" class="hidden frame-container">
     <iframe id="EmbedderContainer" width="100%" height="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
   </div>
+
+  <div class="category-buttons">
+    <!-- ... (seu código atual) ... -->
+  </div>
+<script>
+  function search() {
+    var searchTerm = document.getElementById("search-input").value.toLowerCase();
+    var mediaItems = document.querySelectorAll(".media");
+
+    mediaItems.forEach(function (mediaItem) {
+      var altText = mediaItem.querySelector("img").getAttribute("alt");
+
+      // Verificar se o texto alternativo contém a pesquisa
+      var matchFound = altText && altText.toLowerCase().includes(searchTerm);
+
+      // Exibir o nome na console se a correspondência for encontrada
+      if (matchFound) {
+        console.log("Nome encontrado:", altText);
+        // Chamar a função showFrame ao clicar no item
+        mediaItem.addEventListener("click", function() {
+          var iframeURL = mediaItem.getAttribute("data-iframe-url");
+          if (iframeURL) {
+            showFrame(iframeURL);
+          } else {
+            console.log("URL do iframe não encontrada.");
+          }
+        });
+      }
+
+      // Aplicar a borda com base na correspondência
+      mediaItem.style.border = matchFound ? "2px solid #FFD700" : "none";
+    });
+  }
+
+  function showFrame(url) {
+    // Implemente a lógica para exibir o frame com a URL fornecida
+    console.log("Abrindo frame com URL:", url);
+    // Substitua esta linha com a lógica real para exibir o iframe
+  }
+</script>
 
   <script>
     function resetPage() {
